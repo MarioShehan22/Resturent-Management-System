@@ -5,7 +5,7 @@ public class Main {
         SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame("Restaurant Management System");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setSize(600, 400);
+            frame.setSize(600, 650);
             
             JTabbedPane tabbedPane = new JTabbedPane();
             tabbedPane.addTab("Registration", new RegistrationForm());
