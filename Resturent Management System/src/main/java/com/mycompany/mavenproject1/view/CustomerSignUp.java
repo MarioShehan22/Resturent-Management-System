@@ -294,6 +294,10 @@ public class CustomerSignUp extends JPanel{
                         JOptionPane.INFORMATION_MESSAGE);
                 Customer customer = new Customer();
                 customer.setUserName(name); 
+                customer.setEmail(email);
+                customer.setTelephone(phone); 
+                customer.setPassword(password);
+                
                 clearFields();
             } else {
                 JOptionPane.showMessageDialog(this,
