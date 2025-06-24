@@ -140,7 +140,7 @@ public class LoginForm extends JPanel {
         add(spacerPanel, BorderLayout.SOUTH);
     }
 
-    private void styleTextField(JTextField field, String placeholder) {
+    private void styleTextField(final JTextField field, final String placeholder) {
         field.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         field.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(new Color(180, 180, 180), 1),
@@ -176,7 +176,7 @@ public class LoginForm extends JPanel {
         });
     }
 
-    private void stylePasswordField(JPasswordField field) {
+    private void stylePasswordField(final JPasswordField field) {
         field.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         field.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(new Color(180, 180, 180), 1),
@@ -200,7 +200,7 @@ public class LoginForm extends JPanel {
         });
     }
 
-    private void styleButton(JButton button, Color bgColor, Color textColor) {
+    private void styleButton(final JButton button, final Color bgColor, Color textColor) {
         button.setBackground(bgColor);
         button.setForeground(textColor);
         button.setFont(new Font("Segoe UI", Font.BOLD, 16));
@@ -220,7 +220,7 @@ public class LoginForm extends JPanel {
         });
     }
 
-    private void styleLinkButton(JButton button) {
+    private void styleLinkButton(final JButton button) {
         button.setContentAreaFilled(false);
         button.setBorderPainted(false);
         button.setForeground(new Color(25, 118, 210));
