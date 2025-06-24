@@ -1,6 +1,13 @@
 com\mycompany\mavenproject1\CrudUtil.class
-com\mycompany\mavenproject1\DbConnection.class
+com\mycompany\mavenproject1\RegistrationForm$2.class
+com\mycompany\mavenproject1\RegistrationForm$1.class
+com\mycompany\mavenproject1\Model\Customer.class
+com\mycompany\mavenproject1\LoginForm$3.class
 com\mycompany\mavenproject1\LoginForm.class
-com\mycompany\mavenproject1\Model\User.class
 com\mycompany\mavenproject1\RegistrationForm.class
+com\mycompany\mavenproject1\LoginForm$4.class
+com\mycompany\mavenproject1\LoginForm$1.class
+com\mycompany\mavenproject1\DbConnection.class
 com\mycompany\mavenproject1\Main.class
+com\mycompany\mavenproject1\LoginForm$2.class
+com\mycompany\mavenproject1\Model\User.class

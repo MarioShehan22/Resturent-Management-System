@@ -1,6 +1,5 @@
 package com.mycompany.mavenproject1.Model;
 
-import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,10 +9,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class User {
+public class Customer {
     private String userName;
-    private String email;
-    private String phone;
-    private Date dob;
+    private String telephone;
+    private String dob;
     private String password;
+    private String email;
 }

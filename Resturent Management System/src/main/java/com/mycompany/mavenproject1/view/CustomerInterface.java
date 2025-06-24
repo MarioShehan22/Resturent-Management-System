@@ -1,11 +1,11 @@
-package com.mycompany.mavenproject1;
+package com.mycompany.mavenproject1.view;
 
 import java.awt.*;
 import java.text.SimpleDateFormat;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-public class RegistrationForm extends JPanel {
+public class CustomerInterface {
     private final JTextField txtName = new JTextField(20);
     private final JTextField txtEmail = new JTextField(20);
     private final JTextField txtPhone = new JTextField(20);
@@ -16,7 +16,7 @@ public class RegistrationForm extends JPanel {
     private final JButton btnClear = new JButton("Clear");
     private final JCheckBox chkShowPassword = new JCheckBox("Show Password");
 
-    public RegistrationForm() {
+    public CustomerInterface() {
         initializeComponents();
         setupLayout();
         setupEventHandlers();
@@ -216,79 +216,4 @@ public class RegistrationForm extends JPanel {
         return text.equals(placeholder) ? "" : text;
     }
 
-    private void registerUser() {
-        // Get field values
-        String name = getFieldText(txtName, "Enter your full name");
-        String email = getFieldText(txtEmail, "Enter your email address");
-        String phone = getFieldText(txtPhone, "Enter your phone number");
-        String password = new String(txtPassword.getPassword());
-        String confirmPassword = new String(txtConfirmPassword.getPassword());
-
-        // Enhanced validation
-        if (name.isEmpty()) {
-            showValidationError("Please enter your full name.", txtName);
-            return;
-        }
-        if (email.isEmpty()) {
-            showValidationError("Please enter your email.", txtEmail);
-            return;
-        }
-        if (!email.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,6}$")) {
-            showValidationError("Please enter a valid email address.", txtEmail);
-            return;
-        }
-        if (phone.isEmpty()) {
-            showValidationError("Please enter your phone number.", txtPhone);
-            return;
-        }
-        if (txtDOB.getValue() == null) {
-            showValidationError("Please enter your date of birth.", txtDOB);
-            return;
-        }
-        if (password.isEmpty()) {
-            showValidationError("Please enter a password.", txtPassword);
-            return;
-        }
-        if (password.length() < 6) {
-            showValidationError("Password must be at least 6 characters long.", txtPassword);
-            return;
-        }
-        if (!password.equals(confirmPassword)) {
-            showValidationError("Passwords do not match.", txtConfirmPassword);
-            return;
-        }
-
-        try {
-            String sql = "INSERT INTO users (name, email, phone, dob, password) VALUES (?, ?, ?, ?, ?)";
-
-            java.util.Date utilDate = (java.util.Date) txtDOB.getValue();
-            java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-
-            boolean inserted = CrudUtil.execute(sql, name, email, phone, sqlDate, password);
-
-            if (inserted) {
-                JOptionPane.showMessageDialog(this,
-                        "Registration Successful!\nWelcome to our platform!",
-                        "Success",
-                        JOptionPane.INFORMATION_MESSAGE);
-                clearFields();
-            } else {
-                JOptionPane.showMessageDialog(this,
-                        "Registration failed. Please try again.",
-                        "Error",
-                        JOptionPane.ERROR_MESSAGE);
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            JOptionPane.showMessageDialog(this,
-                    "Error: " + ex.getMessage(),
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
-    private void showValidationError(String message, JComponent component) {
-        JOptionPane.showMessageDialog(this, message, "Validation Error", JOptionPane.ERROR_MESSAGE);
-        component.requestFocus();
-    }
 }
