@@ -1,21 +1,43 @@
-package com.mycompany.mavenproject1;
+package com.mycompany.mavenproject1.view;
 
-import com.mycompany.mavenproject1.Model.User;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Cursor;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.*;
+
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 
-public class LoginForm extends JPanel {
-    private JTextField txtEmail = new JTextField(20);
-    private JPasswordField txtPassword = new JPasswordField(20);
-    private JButton btnLogin = new JButton("Sign In");
-    private JButton btnForgotPassword = new JButton("Forgot Password?");
-    private JCheckBox chkRememberMe = new JCheckBox("Remember me");
-    private JCheckBox chkShowPassword = new JCheckBox("Show Password");
+import com.mycompany.mavenproject1.Db.CrudUtil;
+import com.mycompany.mavenproject1.Model.User;
 
-    public LoginForm() {
+public class CustomerLogin extends JPanel{
+    private final JTextField txtEmail = new JTextField(20);
+    private final JPasswordField txtPassword = new JPasswordField(20);
+    private final JButton btnLogin = new JButton("Sign In");
+    private final JButton btnForgotPassword = new JButton("Forgot Password?");
+    private JCheckBox chkRememberMe = new JCheckBox("Remember me");
+    private final JCheckBox chkShowPassword = new JCheckBox("Show Password");
+
+    public CustomerLogin() {
         initializeComponents();
         setupLayout();
         setupEventHandlers();
@@ -49,7 +71,7 @@ public class LoginForm extends JPanel {
         titlePanel.setBackground(getBackground());
         titlePanel.setLayout(new BoxLayout(titlePanel, BoxLayout.Y_AXIS));
 
-        JLabel titleLabel = new JLabel("Welcome Back", JLabel.CENTER);
+        JLabel titleLabel = new JLabel("Welcome Back Customer", JLabel.CENTER);
         titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 28));
         titleLabel.setForeground(new Color(51, 51, 51));
         titleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -153,6 +175,7 @@ public class LoginForm extends JPanel {
         field.setText(placeholder);
 
         field.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
             public void focusGained(java.awt.event.FocusEvent evt) {
                 if (field.getText().equals(placeholder)) {
                     field.setText("");
@@ -163,6 +186,7 @@ public class LoginForm extends JPanel {
                         BorderFactory.createEmptyBorder(7, 11, 7, 11)
                 ));
             }
+            @Override
             public void focusLost(java.awt.event.FocusEvent evt) {
                 if (field.getText().isEmpty()) {
                     field.setForeground(Color.GRAY);
@@ -185,12 +209,14 @@ public class LoginForm extends JPanel {
         field.setPreferredSize(new Dimension(300, 45));
 
         field.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
             public void focusGained(java.awt.event.FocusEvent evt) {
                 field.setBorder(BorderFactory.createCompoundBorder(
                         BorderFactory.createLineBorder(new Color(25, 118, 210), 2),
                         BorderFactory.createEmptyBorder(7, 11, 7, 11)
                 ));
             }
+            @Override
             public void focusLost(java.awt.event.FocusEvent evt) {
                 field.setBorder(BorderFactory.createCompoundBorder(
                         BorderFactory.createLineBorder(new Color(180, 180, 180), 1),
@@ -211,9 +237,11 @@ public class LoginForm extends JPanel {
 
         // Add hover effect
         button.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 button.setBackground(bgColor.darker());
             }
+            @Override
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 button.setBackground(bgColor);
             }
@@ -228,9 +256,11 @@ public class LoginForm extends JPanel {
         button.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
         button.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 button.setForeground(new Color(25, 118, 210).darker());
             }
+            @Override
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 button.setForeground(new Color(25, 118, 210));
             }
@@ -340,5 +370,13 @@ public class LoginForm extends JPanel {
         if (component != null) {
             component.requestFocus();
         }
+    }
+
+    public JCheckBox getChkRememberMe() {
+        return chkRememberMe;
+    }
+
+    public void setChkRememberMe(JCheckBox chkRememberMe) {
+        this.chkRememberMe = chkRememberMe;
     }
 }

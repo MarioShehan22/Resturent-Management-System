@@ -1,4 +1,4 @@
-package com.mycompany.mavenproject1;
+package com.mycompany.mavenproject1.Db;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

@@ -1,5 +1,6 @@
-package com.mycompany.mavenproject1;
+package com.mycompany.mavenproject1.view;
 
+import com.mycompany.mavenproject1.Db.CrudUtil;
 import java.awt.*;
 import java.text.SimpleDateFormat;
 import javax.swing.*;
